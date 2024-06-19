@@ -1,14 +1,14 @@
 """add stir shaken
 
 Revision ID: 61797b9fced6
-Revises: fbb7766f17bc
+Revises: b80485ff4dd0
 Create Date: 2020-06-29 11:52:59.946929
 
 """
 
 # revision identifiers, used by Alembic.
 revision = '61797b9fced6'
-down_revision = 'e658c26033ca'
+down_revision = 'b80485ff4dd0'
 
 from alembic import op
 import sqlalchemy as sa

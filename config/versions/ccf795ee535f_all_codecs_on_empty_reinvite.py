@@ -1,14 +1,14 @@
-"""pjsip add use_callerid_contact
+"""all_codecs_on_empty_reinvite
 
-Revision ID: 2bb1a85135ad
-Revises: 465f47f880be
-Create Date: 2018-10-18 15:13:40.462354
+Revision ID: ccf795ee535f
+Revises: 417c0247fd7e
+Create Date: 2022-09-28 09:14:36.709781
 
 """
 
 # revision identifiers, used by Alembic.
-revision = '2bb1a85135ad'
-down_revision = '465f47f880be'
+revision = 'ccf795ee535f'
+down_revision = '417c0247fd7e'
 
 from alembic import op
 import sqlalchemy as sa
@@ -22,7 +22,6 @@ AST_BOOL_VALUES = [ '0', '1',
                     'false', 'true',
                     'no', 'yes' ]
 
-
 def upgrade():
     ############################# Enums ##############################
 
@@ -30,10 +29,9 @@ def upgrade():
     # type to get around "already created" issue - works okay with mysql
     ast_bool_values = ENUM(*AST_BOOL_VALUES, name=AST_BOOL_NAME, create_type=False)
 
-    op.add_column('ps_globals', sa.Column('use_callerid_contact', ast_bool_values))
-
+    op.add_column('ps_globals', sa.Column('all_codecs_on_empty_reinvite', ast_bool_values))
 
 def downgrade():
     if op.get_context().bind.dialect.name == 'mssql':
-        op.drop_constraint('ck_ps_globals_use_callerid_contact_ast_bool_values', 'ps_globals')
-    op.drop_column('ps_globals', 'use_callerid_contact')
+        op.drop_constraint('ck_ps_globals_all_codecs_on_empty_reinvite_ast_bool_values', 'ps_globals')
+    op.drop_column('ps_globals', 'all_codecs_on_empty_reinvite')

@@ -1,14 +1,14 @@
 """Add ringinuse to queue_members
 
 Revision ID: 8915fcc5766f
-Revises: 61797b9fced6
+Revises: e658c26033ca
 Create Date: 2021-03-24 09:28:46.901447
 
 """
 
 # revision identifiers, used by Alembic.
 revision = '8915fcc5766f'
-down_revision = '61797b9fced6'
+down_revision = 'e658c26033ca'
 
 from alembic import op
 import sqlalchemy as sa
